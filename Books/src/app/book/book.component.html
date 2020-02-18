@@ -5,8 +5,19 @@
       <input class="new-book" placeholder="Enter New Book" autofocus>
     </header>
 
+    <ul class="book-list">
+        <li *ngFor="let book of books" [ngClass]="{completed: book.read}" >
+          <div class="view">
+            <input class="toggle" type="checkbox" [checked]="book.read">
+            <label>{{book.title}}</label>
+            <button class="destroy">delete</button>
+          </div>
+        </li>
+      </ul>
+
     <footer class="footer">
       <ul class="filters">
+        <span class="book-count"><strong>{{currentlyReading}}</strong> books to read</span>
         <li>
           <a class="selected" href="#/">All</a>
         </li>
@@ -17,6 +28,6 @@
           <a href="#/read">Read</a>
         </li>
       </ul>
-      <button class="clear-read">Clear read</button>
+      <button class="clear-read">Clear All Read Books</button>
     </footer>
   </section>

@@ -9,19 +9,20 @@ import { BookService } from './book.service';
 })
 
 export class BookComponent implements OnInit {
-  private books;
-  private activeTasks;
+  books;
+  currentlyReading;
 
   constructor(private bookService: BookService) { }
 
   getBooks(){
     return this.bookService.get().then(books => {
       this.books = books;
-      this.activeTasks = this.books.filter(book => !book.read).length;
-    })
+      this.currentlyReading = this.books.filter(book => !book.read).length;
+    });
   }
 
-  ngOnInit(): void {
+  ngOnInit() {
+    this.getBooks();
   }
 
 }
