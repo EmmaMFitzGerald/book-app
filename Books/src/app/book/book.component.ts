@@ -14,12 +14,12 @@ export class BookComponent implements OnInit {
   currentlyReading;
   bookTitle;
 
-  book: Book = {
-    id: 1,
-    title: "Harry Potter",
-    author: "JK Rowling",
-    read: false
-  };
+  // book: Book = {
+  //   id: 1,
+  //   title: "Harry Potter",
+  //   author: "JK Rowling",
+  //   read: false
+  // };
 
   selectedBook: Book;
 
