@@ -2,11 +2,19 @@
 
     <header class="header">
       <h1>Book</h1>
-      <input class="new-book" placeholder="Enter New Book" autofocus>
+      <input class="book-title"
+       placeholder="Book Title"
+       [(ngModel)]="bookTitle"
+       (keyup.enter)="addBook()"
+       autofocus>
+       <label>Title:
+        <input [(ngModel)]="book.title" placeholder="Title"/>
+      </label>
     </header>
 
+
     <ul class="book-list">
-        <li *ngFor="let book of books" [ngClass]="{completed: book.read}" >
+        <li *ngFor="let book of books" (click)="onSelect(book)" [ngClass]="{completed: book.read}" >
           <div class="view">
             <input class="toggle" type="checkbox" [checked]="book.read">
             <label>{{book.title}}</label>
@@ -14,6 +22,16 @@
           </div>
         </li>
       </ul>
+
+      <div *ngIf="selectedBook">
+      <h2>{{selectedBook.title | uppercase}} Details</h2>
+        <div><span>Author: </span>{{selectedBook.author}}</div>
+        <div>
+        <label>Title:
+            <input [(ngModel)]="selectedBook.title" placeholder="Title"/>
+        </label>
+        </div>
+        </div>
 
     <footer class="footer">
       <ul class="filters">

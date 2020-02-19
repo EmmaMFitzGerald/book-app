@@ -18,5 +18,11 @@ export class BookService {
   get() {
     return new Promise(resolve => resolve(BOOKS));
   }
-  
+
+  add(data) {
+    return new Promise(resolve => {
+      BOOKS.push(data);
+      resolve(data);
+    });
+  }
 }
