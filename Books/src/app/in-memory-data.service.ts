@@ -10,10 +10,10 @@ export class InMemoryDataService implements InMemoryDbService {
   createDb(){
 
     const books = [
-    {id: 1, title: "Golden in Death", author: "J.D. Robb", read: true},
-    {id: 2, title: "Crooked River", author: "Lincoln Child", read: true},
-    {id: 3, title: "American Dirt", author: "J Cummins", read: false},
-    {id: 4, title: "Where the Crawdads Sing", author: "Delia Owens", read: false}
+    {id: 1, title: "Golden in Death", read: true},
+    {id: 2, title: "Crooked River", read: true},
+    {id: 3, title: "American Dirt", read: false},
+    {id: 4, title: "Where the Crawdads Sing",   read: false}
     ];
     return {books};
   }

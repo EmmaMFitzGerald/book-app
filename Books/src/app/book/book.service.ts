@@ -45,6 +45,23 @@ export class BookService {
     );
   }
 
+  addBook (book: Book): Observable<Book>{
+    return this.http.post(this.booksUrl, book, this.httpOptions).pipe(
+      tap((newBook: Book) => this.log(`added new book: id = ${newBook.id}`)),
+      catchError(this.handleError<any>('addBook'))
+    );
+  }
+
+  deleteBook(book: Book | number): Observable<Book>{
+    const id = typeof book === 'number' ? book : book.id;
+    const url = `${this.booksUrl}/${id}`;
+
+    return this.http.delete<Book>(url, this.httpOptions).pipe(
+      tap(_ => this.log(`deleted book with id: ${id}`)),
+      catchError(this.handleError<Book>('deleteBook'))
+    )
+  }
+
   private handleError<T> (operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {
       console.error(error);

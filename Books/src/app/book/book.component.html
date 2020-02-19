@@ -3,7 +3,19 @@
     <a routerLink='/detail/{{book.id}}'>
       <span>{{book.id}}</span> {{book.title}}
     </a>
+    <button title="delete book"
+    (click)="delete(book)">delete</button>
   </li>
 </ul>
+
+<div>
+  <p>Add a New Book</p>
+  <label>Title:
+    <input #bookTitle />
+  </label>
+  <button (click)="add(bookTitle.value); bookTitle.value=''">
+    add
+  </button>
+</div>
 
 
