@@ -1,43 +1,20 @@
-<section class="book-app">
+<h2>My Books</h2>
+<ul>
+  <li *ngFor="let book of books"
+    [class.selected]="book === selectedBook"
+    (click)="onSelect(book)">
+    <span>{{book.id}}</span> {{book.title}}
+  </li>
+</ul>
 
-    <header class="header">
-      <h1>Book</h1>
-      <input class="book-title"
-       placeholder="Book Title"
-       [(ngModel)]="bookTitle"
-       (keyup.enter)="addBook()"
-       autofocus>
-       <label>Title:
-        <input [(ngModel)]="book.title" placeholder="Title"/>
-      </label>
-    </header>
+<div *ngIf="selectedBook">
 
+  <h2>{{selectedBook.title}} Details</h2>
+  <div><span>Author: </span>{{selectedBook.author}}</div>
+  <div>
+    <label>Title:
+      <input [(ngModel)]="selectedBook.title" placeholder="Title"/>
+    </label>
+  </div>
 
-    <ul class="book-list">
-        <li *ngFor="let book of books" (click)="onSelect(book)" [ngClass]="{completed: book.read}" >
-          <div class="view">
-            <input class="toggle" type="checkbox" [checked]="book.read">
-            <label>{{book.title}}</label>
-            <button class="destroy">delete</button>
-          </div>
-        </li>
-      </ul>
-
-    <app-book-detail [book]="selectedBook"></app-book-detail>
-
-    <footer class="footer">
-      <ul class="filters">
-        <span class="book-count"><strong>{{currentlyReading}}</strong> books to read</span>
-        <li>
-          <a class="selected" href="#/">All</a>
-        </li>
-        <li>
-          <a href="#/to-be-read">To Be Read</a>
-        </li>
-        <li>
-          <a href="#/read">Read</a>
-        </li>
-      </ul>
-      <button class="clear-read">Clear All Read Books</button>
-    </footer>
-  </section>
+</div>
