@@ -13,7 +13,7 @@ export class InMemoryDataService implements InMemoryDbService {
     {id: 1, title: "Golden in Death", read: true},
     {id: 2, title: "Crooked River", read: true},
     {id: 3, title: "American Dirt", read: false},
-    {id: 4, title: "Where the Crawdads Sing",   read: false}
+    {id: 4, title: "Where the Crawdads Sing", read: false}
     ];
     return {books};
   }

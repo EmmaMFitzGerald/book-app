@@ -11,6 +11,7 @@ import { BookComponent } from './book/book.component';
 import { BookDetailComponent } from './book-detail/book-detail.component';
 import { MessagesComponent } from './messages/messages.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { BookSearchComponent } from './book-search/book-search.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { DashboardComponent } from './dashboard/dashboard.component';
     BookComponent,
     BookDetailComponent,
     MessagesComponent,
-    DashboardComponent
+    DashboardComponent,
+    BookSearchComponent
   ],
   imports: [
     HttpClientModule,
