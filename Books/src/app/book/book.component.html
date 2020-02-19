@@ -23,15 +23,7 @@
         </li>
       </ul>
 
-      <div *ngIf="selectedBook">
-      <h2>{{selectedBook.title | uppercase}} Details</h2>
-        <div><span>Author: </span>{{selectedBook.author}}</div>
-        <div>
-        <label>Title:
-            <input [(ngModel)]="selectedBook.title" placeholder="Title"/>
-        </label>
-        </div>
-        </div>
+    <app-book-detail [book]="selectedBook"></app-book-detail>
 
     <footer class="footer">
       <ul class="filters">
