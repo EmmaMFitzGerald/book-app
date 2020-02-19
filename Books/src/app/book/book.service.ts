@@ -18,6 +18,10 @@ export class BookService {
     private messageService: MessageService
     ) { }
 
+    httpOptions = {
+      headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+    };
+
   getBooks(): Observable<Book[]> {
     return this.http.get<Book[]>(this.booksUrl)
     .pipe(
@@ -31,6 +35,13 @@ export class BookService {
     return this.http.get<Book>(url).pipe(
       tap(_ => this.log(`fetched book id=${id}`)),
       catchError(this.handleError<Book>(`getBook id=${id}`))
+    );
+  }
+
+  updateBook (book: Book): Observable<Book> {
+    return this.http.put(this.booksUrl, book, this.httpOptions).pipe(
+      tap(_ => this.log(`updated book id = ${book.id}`)),
+      catchError(this.handleError<any>('updateError'))
     );
   }
 
