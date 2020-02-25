@@ -12,7 +12,7 @@ import { BookService } from './book.service';
 export class BookComponent implements OnInit {
     selectedBook: Book;
 
-    books: Book[];
+    books: any[];
   
     constructor(private bookService: BookService) { }
   

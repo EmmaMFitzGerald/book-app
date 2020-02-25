@@ -52,6 +52,8 @@ export class BookService {
     );
   }
 
+
+
   deleteBook(book: Book | number): Observable<Book>{
     const id = typeof book === 'number' ? book : book.id;
     const url = `${this.booksUrl}/${id}`;
